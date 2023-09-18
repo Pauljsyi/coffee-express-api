@@ -8,15 +8,21 @@ const Coffee = require("./models/coffee.model");
 // const firebaseui = require("firebaseui");
 
 app.get("/", async (req, res) => {
-  Coffee.find()
-    .then((items) => {
-      console.log("res in findAllCoffee: ", items);
-      res.status(200).json(items);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send("AN ERROR OCCURED", err);
-    });
+  try {
+    Coffee.find()
+      .then((items) => {
+        console.log("res in findAllCoffee: ", items);
+        res.status(200).json(items);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).send("AN ERROR OCCURED", err);
+      });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Server Errorrrrr");
+  }
+
   // try {
   //   res.json({
   //     status: 200,
