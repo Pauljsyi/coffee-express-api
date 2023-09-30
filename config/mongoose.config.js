@@ -2,10 +2,12 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config({ path: "../.env" });
 const MONGO_KEY = process.env.MONGO_ATLAS_PW;
+const MONGO_URI = process.env.MONGO_ATLAS_URI;
 
 mongoose
   .connect(
-    `mongodb+srv://pauljsyi:${MONGO_KEY}@cluster0.woda1nd.mongodb.net/`,
+    `${MONGO_URI}
+    `,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,

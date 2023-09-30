@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const CoffeeSchema = new mongoose.Schema({
   id: {
-    type: Number,
+    type: String,
     required: [true, "id is required"],
   },
   title: {

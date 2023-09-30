@@ -3,25 +3,10 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const Coffee = require("./models/coffee.model");
 // const firebase = require("firebase");
 // const firebaseui = require("firebaseui");
 
 app.get("/", async (req, res) => {
-  // try {
-  //   Coffee.find()
-  //     .then((items) => {
-  //       console.log("res in findAllCoffee: ", items);
-  //       res.status(200).json(items);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       res.status(500).send("AN ERROR OCCURED", err);
-  //     });
-  // } catch (error) {
-  //   console.error(error);
-  //   return res.status(500).send("Server Errorrrrr");
-  // }
   try {
     res.json({
       status: 200,
@@ -69,6 +54,7 @@ app.use(express.json(), express.urlencoded({ extended: true }));
 const AllUserRoutes = require("./routes/user.routes");
 const AllCoffeeRoutes = require("./routes/coffee.routes");
 AllCoffeeRoutes(app);
+
 AllUserRoutes(app);
 
 // set up multer for storing uploaded files
